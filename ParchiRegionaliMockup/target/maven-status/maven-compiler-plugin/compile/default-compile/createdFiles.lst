@@ -1,0 +1,14 @@
+it\gruppo4\dao\Dao.class
+it\gruppo4\controller\ControllerMultiMap.class
+it\gruppo4\entity\OrdineAppartenenza.class
+it\gruppo4\entity\Animale.class
+it\gruppo4\entity\Specie.class
+it\gruppo4\dao\AnimaleDao.class
+it\gruppo4\entity\Tipologia.class
+it\gruppo4\dao\SpecieDao.class
+it\gruppo4\dao\OrdineAppartenenzaDao.class
+it\gruppo4\dao\ParcoDao.class
+it\gruppo4\entity\Vegetale.class
+it\gruppo4\dao\TipologiaDao.class
+it\gruppo4\dao\VegetaleDao.class
+it\gruppo4\entity\Parco.class
