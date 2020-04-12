@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" pkg="entity" v="2.6" rws="_15167799034552" Pws="_15167799034552" cws="_15167799034552" thm="PDarkColorScheme" sm="false" xs="false" id="_15107348645991" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity compositePrimaryKeyClass="OrdineAppartenenzaPK" abs="false" class="OrdineAppartenenza" v="true" xre="false" m="false" rootElement="_15107348645991" id="_1584635907725">
+        <jpa:ath>albert</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" name="descrizione" id="_158463630895135"/>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_158463590772521">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="OrdineAppartenenza.findAll">
+            <jpa:query>Select e from OrdineAppartenenza e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="OrdineAppartenenza.findByDescrizione">
+            <jpa:query>Select o from OrdineAppartenenza o where o.descrizione=:descrizione</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="SpeciePK" abs="false" class="Specie" v="true" xre="false" m="false" rootElement="_15107348645991" id="_1584635927614">
+        <jpa:ath>albert</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" name="nomeSpecie" id="_158463631723136"/>
+            <jpa:many-to-one primaryKey="false" connected-entity-id="_1584635907725" v="true" name="ordineAppartenenza" id="_158463764856759"/>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_158463592761523">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Specie.findAll">
+            <jpa:query>Select e from Specie e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Specie.findByNomeSpecie">
+            <jpa:query>Select s from Specie s where s.nomeSpecie=:nomeSpecie</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="AnimalePK" abs="false" class="Animale" v="true" xre="false" m="false" rootElement="_15107348645991" id="_1584635946655">
+        <jpa:ath>albert</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="nome" id="_158463633231137">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="numeroFemmine" id="_158463634365538">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="numeroMaschi" id="_158463636530239">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="nCuccioliFemmine" id="_158463637099040">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="nCuccioliMaschi" id="_158463639183841">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="livelloSalute" id="_158463643856542">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="rischioEstinzione" id="_158463645166943">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" name="annoPrimoAvvistamento" id="_158463646230944"/>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_1584635954662" v="true" xvt="" name="parco" id="_158463729267654">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:join-column name="PARCO_ID" rc="" unique="false" nullable="true" insertable="true" updatable="true" column-definition="" table=""/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_1584635927614" v="true" xvt="" name="specie" id="_158463769692860">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:join-column name="SPECIE_ID" rc="" unique="false" nullable="true" insertable="true" updatable="true" column-definition="" table=""/>
+            </jpa:many-to-one>
+            <jpa:id attribute-type="Long" v="true" name="id" id="_158463594665625">
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Animale.findAll">
+            <jpa:query>Select e from Animale e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByNome">
+            <jpa:query>Select a from Animale a where a.nome=:nome</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByNumeroFemmine">
+            <jpa:query>Select a from Animale a where a.numeroFemmine=:numeroFemmine</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByNumeroMaschi">
+            <jpa:query>Select a from Animale a where a.numeroMaschi=:numeroMaschi</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByNCuccioliFemmine">
+            <jpa:query>Select a from Animale a where a.nCuccioliFemmine=:nCuccioliFemmine</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByNCuccioliMaschi">
+            <jpa:query>Select a from Animale a where a.nCuccioliMaschi=:nCuccioliMaschi</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByLivelloSalute">
+            <jpa:query>Select a from Animale a where a.livelloSalute=:livelloSalute</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByRischioEstinzione">
+            <jpa:query>Select a from Animale a where a.rischioEstinzione=:rischioEstinzione</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Animale.findByAnnoPrimoAvvistamento">
+            <jpa:query>Select a from Animale a where a.annoPrimoAvvistamento=:annoPrimoAvvistamento</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="ParcoPK" abs="false" class="Parco" v="true" xre="false" m="false" rootElement="_15107348645991" id="_1584635954662">
+        <jpa:ath>albert</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" name="nomeParco" id="_158463678926548"/>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_158463595466327">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Parco.findAll">
+            <jpa:query>Select e from Parco e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Parco.findByNomeParco">
+            <jpa:query>Select p from Parco p where p.nomeParco=:nomeParco</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="VegetalePK" abs="false" class="Vegetale" v="true" xre="false" m="false" rootElement="_15107348645991" id="_1584636007413">
+        <jpa:ath>albert</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="nomePianta" id="_158463672025047">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="stagioneFioritura" id="_158463693677549">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" name="noteVarie" id="_158463696103150"/>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_1584635954662" v="true" xvt="" name="parco" id="_158463732806855">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:many-to-one primaryKey="false" connected-entity-id="_1584636014446" v="true" name="tipologia" id="_158463774289461"/>
+            <jpa:id attribute-type="Long" v="true" name="id" id="_158463600741429">
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Vegetale.findAll">
+            <jpa:query>Select e from Vegetale e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Vegetale.findByNomePianta">
+            <jpa:query>Select v from Vegetale v where v.nomePianta=:nomePianta</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Vegetale.findByStagioneFioritura">
+            <jpa:query>Select v from Vegetale v where v.stagioneFioritura=:stagioneFioritura</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Vegetale.findByNoteVarie">
+            <jpa:query>Select v from Vegetale v where v.noteVarie=:noteVarie</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="TipologiaPK" abs="false" class="Tipologia" v="true" xre="false" m="false" rootElement="_15107348645991" id="_1584636014446">
+        <jpa:ath>albert</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" name="tipo" id="_158463653390845"/>
+            <jpa:basic attribute-type="String" v="true" name="descrizione" id="_158463654953246"/>
+            <jpa:id attribute-type="Long" v="true" name="id" id="_158463601444731">
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Tipologia.findAll">
+            <jpa:query>Select e from Tipologia e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Tipologia.findByTipo">
+            <jpa:query>Select t from Tipologia t where t.tipo=:tipo</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Tipologia.findByDescrizione">
+            <jpa:query>Select t from Tipologia t where t.descrizione=:descrizione</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:snp loc="BEFORE_PACKAGE" e="true">/**
+ * This file was generated by the JPA Modeler
+ */</jpa:snp>
+    <jpa:c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Collection</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Map</ct>
+        <cit>java.util.ArrayList</cit>
+        <cit>java.util.LinkedList</cit>
+        <cit>java.util.HashSet</cit>
+        <cit>java.util.TreeSet</cit>
+        <cit>java.util.HashMap</cit>
+        <db u="jdbc:derby://localhost:1527/BDT" n="USER1" p="USER1" d="org.apache.derby.jdbc.ClientDriver"/>
+    </jpa:c>
+    <jpa:wsl>
+        <jpa:ws n="Main" id="_15167799034552">
+            <i ref="_1584636007413" x="809" y="117"/>
+            <i ref="_1584635907725" x="59" y="517"/>
+            <i ref="_1584635927614" x="385" y="517"/>
+            <i ref="_1584636014446" x="944" y="425"/>
+            <i ref="_1584635946655" x="242" y="117"/>
+            <i ref="_1584635954662" x="608" y="425"/>
+        </jpa:ws>
+    </jpa:wsl>
+</jpa:entity-mappings>
