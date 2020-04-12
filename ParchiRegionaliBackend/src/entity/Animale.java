@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -24,30 +25,32 @@ public class Animale {
     private String nome;
 
     @Basic
-    private String numeroFemmine;
+    private int numeroFemmine;
 
     @Basic
-    private String numeroMaschi;
+    private int numeroMaschi;
 
     @Basic
-    private String nCuccioliFemmine;
+    private int nCuccioliFemmine;
 
     @Basic
-    private String nCuccioliMaschi;
+    private int nCuccioliMaschi;
 
     @Basic
-    private String livelloSalute;
+    private int livelloSalute;
 
     @Basic
-    private String rischioEstinzione;
+    private int rischioEstinzione;
 
     @Basic
     private String annoPrimoAvvistamento;
 
     @ManyToOne(targetEntity = Parco.class)
+    @JoinColumn(name = "PARCO_ID")
     private Parco parco;
 
     @ManyToOne(targetEntity = Specie.class)
+    @JoinColumn(name = "SPECIE_ID")
     private Specie specie;
 
     public Long getId() {
@@ -66,51 +69,51 @@ public class Animale {
         this.nome = nome;
     }
 
-    public String getNumeroFemmine() {
+    public int getNumeroFemmine() {
         return this.numeroFemmine;
     }
 
-    public void setNumeroFemmine(String numeroFemmine) {
+    public void setNumeroFemmine(int numeroFemmine) {
         this.numeroFemmine = numeroFemmine;
     }
 
-    public String getNumeroMaschi() {
+    public int getNumeroMaschi() {
         return this.numeroMaschi;
     }
 
-    public void setNumeroMaschi(String numeroMaschi) {
+    public void setNumeroMaschi(int numeroMaschi) {
         this.numeroMaschi = numeroMaschi;
     }
 
-    public String getNCuccioliFemmine() {
+    public int getNCuccioliFemmine() {
         return this.nCuccioliFemmine;
     }
 
-    public void setNCuccioliFemmine(String nCuccioliFemmine) {
+    public void setNCuccioliFemmine(int nCuccioliFemmine) {
         this.nCuccioliFemmine = nCuccioliFemmine;
     }
 
-    public String getNCuccioliMaschi() {
+    public int getNCuccioliMaschi() {
         return this.nCuccioliMaschi;
     }
 
-    public void setNCuccioliMaschi(String nCuccioliMaschi) {
+    public void setNCuccioliMaschi(int nCuccioliMaschi) {
         this.nCuccioliMaschi = nCuccioliMaschi;
     }
 
-    public String getLivelloSalute() {
+    public int getLivelloSalute() {
         return this.livelloSalute;
     }
 
-    public void setLivelloSalute(String livelloSalute) {
+    public void setLivelloSalute(int livelloSalute) {
         this.livelloSalute = livelloSalute;
     }
 
-    public String getRischioEstinzione() {
+    public int getRischioEstinzione() {
         return this.rischioEstinzione;
     }
 
-    public void setRischioEstinzione(String rischioEstinzione) {
+    public void setRischioEstinzione(int rischioEstinzione) {
         this.rischioEstinzione = rischioEstinzione;
     }
 

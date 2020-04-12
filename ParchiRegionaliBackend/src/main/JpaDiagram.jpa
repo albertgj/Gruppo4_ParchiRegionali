@@ -42,30 +42,41 @@
                 <jpa:xwm/>
                 <jpa:xm/>
             </jpa:basic>
-            <jpa:basic attribute-type="String" v="true" xvt="" name="numeroFemmine" id="_158463634365538">
+            <jpa:basic attribute-type="int" v="true" xvt="" name="numeroFemmine" id="_158463634365538">
                 <jpa:xwm/>
                 <jpa:xm/>
             </jpa:basic>
-            <jpa:basic attribute-type="String" v="true" xvt="" name="numeroMaschi" id="_158463636530239">
+            <jpa:basic attribute-type="int" v="true" xvt="" name="numeroMaschi" id="_158463636530239">
                 <jpa:xwm/>
                 <jpa:xm/>
             </jpa:basic>
-            <jpa:basic attribute-type="String" v="true" xvt="" name="nCuccioliFemmine" id="_158463637099040">
+            <jpa:basic attribute-type="int" v="true" xvt="" name="nCuccioliFemmine" id="_158463637099040">
                 <jpa:xwm/>
                 <jpa:xm/>
             </jpa:basic>
-            <jpa:basic attribute-type="String" v="true" xvt="" name="nCuccioliMaschi" id="_158463639183841">
+            <jpa:basic attribute-type="int" v="true" xvt="" name="nCuccioliMaschi" id="_158463639183841">
                 <jpa:xwm/>
                 <jpa:xm/>
             </jpa:basic>
-            <jpa:basic attribute-type="String" v="true" name="livelloSalute" id="_158463643856542"/>
-            <jpa:basic attribute-type="String" v="true" name="rischioEstinzione" id="_158463645166943"/>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="livelloSalute" id="_158463643856542">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="int" v="true" xvt="" name="rischioEstinzione" id="_158463645166943">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
             <jpa:basic attribute-type="String" v="true" name="annoPrimoAvvistamento" id="_158463646230944"/>
-            <jpa:many-to-one primaryKey="false" connected-entity-id="_1584635954662" v="true" xvt="" name="parco" id="_158463729267654">
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_1584635954662" v="true" xvt="" name="parco" id="_158463729267654">
                 <jpa:xwm/>
                 <jpa:xm/>
+                <jpa:join-column name="PARCO_ID" rc="" unique="false" nullable="true" insertable="true" updatable="true" column-definition="" table=""/>
             </jpa:many-to-one>
-            <jpa:many-to-one primaryKey="false" connected-entity-id="_1584635927614" v="true" name="specie" id="_158463769692860"/>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_1584635927614" v="true" xvt="" name="specie" id="_158463769692860">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:join-column name="SPECIE_ID" rc="" unique="false" nullable="true" insertable="true" updatable="true" column-definition="" table=""/>
+            </jpa:many-to-one>
             <jpa:id attribute-type="Long" v="true" name="id" id="_158463594665625">
                 <jpa:generated-value strategy="AUTO"/>
             </jpa:id>
@@ -127,7 +138,10 @@
                 <jpa:xm/>
             </jpa:basic>
             <jpa:basic attribute-type="String" v="true" name="noteVarie" id="_158463696103150"/>
-            <jpa:many-to-one primaryKey="false" connected-entity-id="_1584635954662" v="true" name="parco" id="_158463732806855"/>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_1584635954662" v="true" xvt="" name="parco" id="_158463732806855">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
             <jpa:many-to-one primaryKey="false" connected-entity-id="_1584636014446" v="true" name="tipologia" id="_158463774289461"/>
             <jpa:id attribute-type="Long" v="true" name="id" id="_158463600741429">
                 <jpa:generated-value strategy="AUTO"/>
