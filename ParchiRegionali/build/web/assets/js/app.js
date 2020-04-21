@@ -13,7 +13,7 @@ var APP = {
 
                 $("tr:has(td)").remove();
                 $.each(obj, function (i, item) {
-                    trHTML += '<tr><td>' + i + '</td><td>' + item.nome + '</td><td>' + item.parco.nomeParco + '</td><td>' + item.specie.nomeSpecie + '</td><td>' + item.specie.ordineAppartenenza.descrizione + "</td><td>" + "<button onclick='alert(`Non implementato`)'>Cancella</button>" + '</td></tr>';
+                    trHTML += '<tr><td>' + i + '</td><td>' + item.nome + '</td><td>' + item.parco.nomeParco + '</td><td>' + item.specie.nomeSpecie + '</td><td>' + item.specie.ordineAppartenenza.descrizione + "</td><td>" + "<button onclick='alert(`Non implementato`)'>Mostra di più</button>" + '</td></tr>';
                 });
                 trHTML += "</tbody>";
                 $('#animaliTable').append(trHTML);
@@ -44,29 +44,52 @@ var APP = {
         var ns = $("#ns").val();
         var desc = $("#desc").val();
 
-        $("#formAnimali").submit(function (e) {
-            e.preventDefault();
-            $.ajax({
-                url: "/parchiregionalitest/insertanimale.htm",
-                type: "POST",
-                dataType: 'x-www-form-urlencoded',
-                headers: {
-                    'Accept': 'application/json;application/x-www-form-urlencoded',
-                    'Content-Type': 'application/json;application/x-www-form-urlencoded'
-                },
-                data: {annoPrimoAvvistamento: apv, livelloSalute: ls, nCuccioliFemmine: ncf, nCuccioliMaschi: ncm, nome: nomeAnimale, numeroFemmine: nf, numeroMaschi: nm, rischioEstinzione: re, parco: {nomeParco: np}, specie: {nomeSpecie: ns, ordineAppartenenza: {descrizione: desc}}},
-                cache: false,
-                timeout: 100000,
-                success: function (data) {
-                    var obj = JSON.parse(data);
-                    $("#result").html("AGGIUNTO ANIMALE");
-                },
-                error: function () {
-                    $("#result").html("ERROR");
+        var myJson = {
+            nome: nomeAnimale,
+            numeroFemmine: parseInt(nf),
+            numeroMaschi: parseInt(nm),
+            nCuccioliFemmine: parseInt(ncf),
+            nCuccioliMaschi: parseInt(ncm),
+            livelloSalute: parseInt(ls),
+            rischioEstinzione: parseInt(re),
+            annoPrimoAvvistamento: apv,
+            parco: {
+                nomeParco: np
+            },
+            specie: {
+                nomeSpecie: ns,
+                ordineAppartenenza: {
+                    descrizione: desc
                 }
-            });
-        });
+            }
+        };
 
+        $.post({
+            url: "/parchiregionali/insertanimale.htm",
+            contentType: "application/json",
+            data: JSON.stringify(myJson),
+            cache: false,
+            timeout: 100000,
+            success: function (data) {
+                var obj = JSON.parse(data);
+                alert(obj);
+                $("#apv").val("");
+                $("#ls").val("");
+                $("#ncf").val("");
+                $("#numeroCuccioliMaschi").val("");
+                $("#nomeAnimale").val("");
+                $("#nf").val("");
+                $("#nm").val("");
+                $("#re").val("");
+                $("#np").val("");
+                $("#ns").val("");
+                $("#desc").val("");
+            },
+            error: function () {
+                alert("ERROR");
+
+            }
+        });
     },
     btnAnimaleOnClick: function () {
         $("#btnAnimale").on('click', APP.addAnimale);
@@ -85,7 +108,7 @@ var APP = {
             timeout: 100000,
             success: function (data) {
                 var obj = JSON.parse(data);
-                alert(obj.nome);
+                $("#risCercaAnimali").html("Nome: " + obj.nome + "<br>" + "Nome parco: " + obj.parco.nomeParco + "<br>" + "Nome specie: " + obj.specie.nomeSpecie + "<br>" + "Ordine Appartenenza: " + obj.specie.ordineAppartenenza.descrizione + "<br>" + "<button id=`clearAnimaliOutput` type=submit onClick=APP.cancellaOutput()>CANCELLA</button>");
             },
             error: function () {
                 alert("ERROR");
@@ -94,6 +117,9 @@ var APP = {
     },
     cercaAnimaliClicked: function () {
         $("#cercaAnimali").on('click', APP.findAnimaleByName);
+    },
+    cancellaOutput: function () {
+        $("#risCercaAnimali").html("");
     }
 };
 
