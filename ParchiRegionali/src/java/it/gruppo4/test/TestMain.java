@@ -23,6 +23,7 @@ public class TestMain {
         OrdineAppartenenzaDao oDao = d.getOrdineAppartenenzaDao();
         SpecieDao sDao = d.getSpecieDao();
 
+        /*
         Animale a = new Animale();
 
         a.setAnnoPrimoAvvistamento("1999");
@@ -49,5 +50,18 @@ public class TestMain {
         sDao.save(s);
         a.setSpecie(s);
         aDao.save(a);
+         */
+        Parco p = new Parco();
+        p.setNomeParco("Verona park");
+        Parco p2 = new Parco();
+        p2.setNomeParco("Trieste Park");
+        Parco p3 = new Parco();
+        p3.setNomeParco("Trento park");
+        Parco p4 = new Parco();
+        p4.setNomeParco("Milano park");
+        pDao.save(p);
+        pDao.save(p2);
+        pDao.save(p3);
+        pDao.save(p4);
     }
 }
